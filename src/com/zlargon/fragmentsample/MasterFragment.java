@@ -44,6 +44,11 @@ public class MasterFragment extends ListFragment {
         // check detail fragment
         if (detailFragment == null || detailFragment.isVisible() == false) {
             // detail fragment is not exist, app screen is portrait now
+
+            // show Dialog
+            DetailDialogFragment detailDialogFragment = new DetailDialogFragment();
+            detailDialogFragment.mDetailText = activity.getDetail();
+            detailDialogFragment.show(getFragmentManager(), "Dialog");
             return;
         }
 
