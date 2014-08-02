@@ -13,11 +13,13 @@
         android:padding="0dp"
         android:text="Button" />
 
-    <Button
+    <fragment
+        android:id="@+id/fragment_detail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        class="com.zlargon.fragmentsample.DetailFragment"
         android:padding="0dp"
-        android:text="Button" />
+        tools:layout="@layout/fragment_detail" />
 
 </LinearLayout>
