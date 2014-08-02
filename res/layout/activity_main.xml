@@ -6,12 +6,14 @@
     android:padding="0dp"
     tools:context="${packageName}.${activityClass}" >
 
-    <Button
+    <fragment
+        android:id="@+id/fragment_master"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        class="com.zlargon.fragmentsample.MasterFragment"
         android:padding="0dp"
-        android:text="Button" />
+        tools:layout="@android:layout/list_content" />
 
     <fragment
         android:id="@+id/fragment_detail"
