@@ -9,16 +9,6 @@ import android.widget.TextView;
 
 public class MasterFragment extends ListFragment {
 
-    private final String[] TITLES = new String[] {
-        "Title 1", "Title 2", "Title 3", "Title 4", "Title 5",
-        "Title 6", "Title 7", "Title 8", "Title 9", "Title 10"
-    };
-
-    private final String[] DETAILS = new String[] {
-        "Detail 1", "Detail 2", "Detail 3", "Detail 4", "Detail 5",
-        "Detail 6", "Detail 7", "Detail 8", "Detail 9", "Detail 10"
-    };
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +17,7 @@ public class MasterFragment extends ListFragment {
         setListAdapter(new ArrayAdapter<String>(
             getActivity(),
             android.R.layout.simple_list_item_activated_1,
-            TITLES
+            ((MainActivity) getActivity()).TITLES
         ));
     }
 
@@ -42,6 +32,12 @@ public class MasterFragment extends ListFragment {
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
 
+        // get activity
+        MainActivity activity = (MainActivity) getActivity();
+
+        // save position to activity
+        activity.setPosition(position);
+
         // find detail fragment
         DetailFragment detailFragment = (DetailFragment) getFragmentManager().findFragmentById(R.id.fragment_detail);
 
@@ -55,6 +51,6 @@ public class MasterFragment extends ListFragment {
         TextView detailTextView = (TextView)detailFragment.getView().findViewById(R.id.textview_detail);
 
         // set text
-        detailTextView.setText(DETAILS[position]);
+        detailTextView.setText(activity.getDetail());
     }
 }
