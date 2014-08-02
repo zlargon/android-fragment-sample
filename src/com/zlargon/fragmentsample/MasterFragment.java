@@ -45,6 +45,12 @@ public class MasterFragment extends ListFragment {
         // find detail fragment
         DetailFragment detailFragment = (DetailFragment) getFragmentManager().findFragmentById(R.id.fragment_detail);
 
+        // check detail fragment
+        if (detailFragment == null || detailFragment.isVisible() == false) {
+            // detail fragment is not exist, app screen is portrait now
+            return;
+        }
+
         // find detail text view
         TextView detailTextView = (TextView)detailFragment.getView().findViewById(R.id.textview_detail);
 
